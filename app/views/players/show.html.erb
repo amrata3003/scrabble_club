@@ -20,5 +20,30 @@
   <%= @player.joining_date %>
 </p>
 
+<p>
+  <strong>Game details</strong>
+</p>
+
+<p>
+  <strong>Number of wins: <%=@win_count%></strong>
+</p>
+
+<p>
+  <strong>Number of losses: <%=@los_count%> </strong>
+</p>
+
+<p>
+  <strong>Average score: <%=@player&.participations.pluck(:score).sum / @player&.participations.pluck(:score).count  if @player&.participations.count > 0 %></strong>
+</p>
+
+<p>
+  <% participation = @player&.participations.order('score DESC')&.first%>
+  <% if participation.present? %>
+    <strong>Highest score: <%=participation.score%> Against <%= participation.opponent&.name%> in Game <%= participation.game.name %></strong>
+  <% else %>
+    <strong>Highest score: 0</strong>
+  <% end %>
+</p>
+
 <%= link_to 'Edit', edit_player_path(@player) %> |
 <%= link_to 'Back', players_path %>

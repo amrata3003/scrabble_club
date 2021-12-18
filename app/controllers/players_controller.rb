@@ -8,6 +8,8 @@ class PlayersController < ApplicationController
 
   # GET /players/1 or /players/1.json
   def show
+    @win_count = Participation.won(@player).count
+    @los_count = Participation.lost(@player).count
   end
 
   # GET /players/new
