@@ -4,12 +4,14 @@
     <title>ScrabbleClub</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <h3 class="menu-text">Scrabble club</h3>
+    <a href="/">leader board</a>          
+    <a href="/players">Players</a>
+    <a href="/games">Games</a>
     <%= yield %>
   </body>
 </html>
